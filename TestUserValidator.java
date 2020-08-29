@@ -100,16 +100,52 @@ public class TestUserValidator {
     }
 
     @Test
-    public void givenPassword_WhenProper_ShouldReturn_True() {
+    public void givenPassword_WhenPasswordIsMinimumEightDigit_ShouldReturn_True() {
         UserValidator userValidator = new UserValidator();
-        boolean result = userValidator.validatePassword("abcdfdA@#fg0");
+        boolean result = userValidator.validatePassword("Parag234$");
         Assert.assertEquals(true, result);
     }
 
     @Test
-    public void givenPassword_WhenNotProper_ShouldReturn_False() {
+    public void givenPassword_WhenPasswordIsNotMinimumEightDigit_ShouldReturn_False() {
         UserValidator userValidator = new UserValidator();
-        boolean result = userValidator.validatePassword("adasdas0daS");
+        boolean result = userValidator.validatePassword("adas");
+        Assert.assertEquals(false, result);
+    }
+    @Test
+    public void givenPassword_WhenPasswordHaveAtleastOneCapitalLetter_ShouldReturn_True() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("Parag234$");
+        Assert.assertEquals(true, result);
+    }
+    @Test
+    public void givenPassword_WhenPasswordNotHaveAtleastOneCapitalLetter_ShouldReturn_False() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("adased@");
+        Assert.assertEquals(false, result);
+    }
+    @Test
+    public void givenPassword_WhenPasswordHaveAtleastOneNumericNumber_ShouldReturn_True() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("Paragadhau2$");
+        Assert.assertEquals(true, result);
+    }
+    @Test
+    public void givenPassword_WhenPasswordNotHaveAtleastOneNumericNumber_ShouldReturn_False() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("adased@");
+        Assert.assertEquals(false, result);
+    }
+    @Test
+    public void givenPassword_WhenPasswordHaveAtleastOneSpeacialCharacter_ShouldReturn_True() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("Parag234$");
+        Assert.assertEquals(true, result);
+    }
+    @Test
+    public void givenPassword_WhenPasswordNotHaveAtleastOneSpeacialCharacter_ShouldReturn_False() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("adased123");
         Assert.assertEquals(false, result);
     }
 }
