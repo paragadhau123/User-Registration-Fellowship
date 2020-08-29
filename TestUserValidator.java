@@ -31,18 +31,29 @@ public class TestUserValidator {
         Assert.assertEquals(false, result);
     }
 
-    }
     @Test
-    public void givenLastName_WhenProper_ShouldReturn_True() {
+    public void givenLastName_WhenLastNameStartsWithCapitalLetter_ShouldReturn_True() {
         UserValidator userValidator = new UserValidator();
         boolean result = userValidator.validateLastName("Adhau");
         Assert.assertEquals(true, result);
     }
 
     @Test
-    public void givenLastName_WhenNotProper_ShouldReturn_False() {
+    public void givenLastName_WhenLastNameNotStartsWithCapitalLetter_ShouldReturn_False() {
         UserValidator userValidator = new UserValidator();
-        boolean result = userValidator.validateLastName("adg");
+        boolean result = userValidator.validateLastName("adhau");
+        Assert.assertEquals(false, result);
+    }
+    @Test
+    public void givenLastName_WhenLastNameHaveMinimumThreeLetter_ShouldReturn_True() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validateLastName("Adh");
+        Assert.assertEquals(true, result);
+    }
+    @Test
+    public void givenLastName_WhenLastNameNotHaveMinimumThreeLetter_ShouldReturn_False() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validateLastName("ad");
         Assert.assertEquals(false, result);
     }
 
