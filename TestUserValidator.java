@@ -58,16 +58,30 @@ public class TestUserValidator {
     }
 
     @Test
-    public void givenEmail_WhenProper_ShouldReturn_True() {
+    public void givenEmail_WhenEmailStartsWithSmallLetter_ShouldReturn_True() {
         UserValidator userValidator = new UserValidator();
-        boolean result = userValidator.validateEmail("abc+111@yahoo.com");
+        boolean result = userValidator.validateEmail("adhauparag64@gmail.com");
         Assert.assertEquals(true, result);
     }
 
     @Test
-    public void givenEmail_WhenNotProper_ShouldReturn_False() {
+    public void givenEmail_WhenEmailNotStartsWithSmallLetter_ShouldReturn_False() {
         UserValidator userValidator = new UserValidator();
-        boolean result = userValidator.validateEmail("abc()*@gmail.com");
+        boolean result = userValidator.validateEmail("Abc@gmail.com");
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenEmail_WhenEmailEndsWithComOrIn_ShouldReturn_True() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validateEmail("abc111@yahoo.com");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenEmail_WhenEmailNotEndsWithComOrIn_ShouldReturn_False() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validateEmail("Abc@gmail.kjnk");
         Assert.assertEquals(false, result);
     }
 
