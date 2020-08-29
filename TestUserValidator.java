@@ -4,17 +4,33 @@ import org.junit.Test;
 
 public class TestUserValidator {
     @Test
-    public void givenFirstName_WhenProper_ShouldReturn_True() {
+    public void givenFirstName_WhenFirstNameStartsWithCapitalLetter_ShouldReturn_True() {
         UserValidator userValidator = new UserValidator();
         boolean result = userValidator.validateFirstName("Parag");
         Assert.assertEquals(true, result);
     }
 
     @Test
-    public void givenFirstName_WhenNotProper_ShouldReturn_False() {
+    public void givenFirstName_WhenFirstNameNotStartsWithCapitalLetter_ShouldReturn_False() {
         UserValidator userValidator = new UserValidator();
-        boolean result = userValidator.validateFirstName("Sh");
+        boolean result = userValidator.validateFirstName("parag");
         Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenFirstName_WhenFirstNameHaveMinimumThreeLetters_ShouldReturn_True() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validateFirstName("Par");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenFirstName_WhenFirstNameNotHaveMinimumThreeLetters_ShouldReturn_False() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validateFirstName("Pa");
+        Assert.assertEquals(false, result);
+    }
+
     }
     @Test
     public void givenLastName_WhenProper_ShouldReturn_True() {
