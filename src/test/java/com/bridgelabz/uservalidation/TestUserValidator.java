@@ -1,4 +1,5 @@
-import com.bridgelabz.userregistration.UserValidator;
+package com.bridgelabz.uservalidation;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -44,12 +45,14 @@ public class TestUserValidator {
         boolean result = userValidator.validateLastName("adhau");
         Assert.assertEquals(false, result);
     }
+
     @Test
     public void givenLastName_WhenLastNameHaveMinimumThreeLetter_ShouldReturn_True() {
         UserValidator userValidator = new UserValidator();
         boolean result = userValidator.validateLastName("Adh");
         Assert.assertEquals(true, result);
     }
+
     @Test
     public void givenLastName_WhenLastNameNotHaveMinimumThreeLetter_ShouldReturn_False() {
         UserValidator userValidator = new UserValidator();
@@ -126,36 +129,42 @@ public class TestUserValidator {
         boolean result = userValidator.validatePassword("adas");
         Assert.assertEquals(false, result);
     }
+
     @Test
     public void givenPassword_WhenPasswordHaveAtleastOneCapitalLetter_ShouldReturn_True() {
         UserValidator userValidator = new UserValidator();
         boolean result = userValidator.validatePassword("Parag234$");
         Assert.assertEquals(true, result);
     }
+
     @Test
     public void givenPassword_WhenPasswordNotHaveAtleastOneCapitalLetter_ShouldReturn_False() {
         UserValidator userValidator = new UserValidator();
         boolean result = userValidator.validatePassword("adased@");
         Assert.assertEquals(false, result);
     }
+
     @Test
     public void givenPassword_WhenPasswordHaveAtleastOneNumericNumber_ShouldReturn_True() {
         UserValidator userValidator = new UserValidator();
         boolean result = userValidator.validatePassword("Paragadhau2$");
         Assert.assertEquals(true, result);
     }
+
     @Test
     public void givenPassword_WhenPasswordNotHaveAtleastOneNumericNumber_ShouldReturn_False() {
         UserValidator userValidator = new UserValidator();
         boolean result = userValidator.validatePassword("adased@");
         Assert.assertEquals(false, result);
     }
+
     @Test
     public void givenPassword_WhenPasswordHaveAtleastOneSpeacialCharacter_ShouldReturn_True() {
         UserValidator userValidator = new UserValidator();
         boolean result = userValidator.validatePassword("Parag234$");
         Assert.assertEquals(true, result);
     }
+
     @Test
     public void givenPassword_WhenPasswordNotHaveAtleastOneSpeacialCharacter_ShouldReturn_False() {
         UserValidator userValidator = new UserValidator();
@@ -163,5 +172,4 @@ public class TestUserValidator {
         Assert.assertEquals(false, result);
     }
 }
-
 

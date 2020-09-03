@@ -1,13 +1,13 @@
-package com.bridgelabz.userregistration;
+package com.bridgelabz.uservalidation;
 
 import java.util.regex.Pattern;
 
-public class UserValidator {
+public class  UserValidator {
 
-    private static final String NAME_PATTERN = "^[A-Z]{1}[a-z]{2,}$";
-    private static final String EMAIL_PATTERN = "^[a-zA-Z0-9.+_-]+[@][a-zA-Z0-9]+[.]co(m|.in)$";
-    private static final String PHONE_PATTERN = "^[1-9][0-9]+[ ]{0,1}+[1-9][0-9]{9}$";
-    private static final String PASSWORD_PATTERN = "(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%!]{1}).{8,}";
+    private final String NAME_PATTERN = "^[A-Z]{1}[a-z]{2,}$";
+    private final String EMAIL_PATTERN = "^[a-z]+[A-Z0-9.+_-]+[@][a-zA-Z0-9]+[.]co(m|.in)$";
+    private final String PHONE_PATTERN = "^[1-9][0-9]+[ ]{0,1}+[1-9][0-9]{9}$";
+    private final String PASSWORD_PATTERN = "(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%!]{1}).{8,}";
 
     public boolean validateFirstName(String firstName) {
         Pattern pattern = Pattern.compile(NAME_PATTERN);
